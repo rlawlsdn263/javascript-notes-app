@@ -28,7 +28,8 @@ body {
 }
 
 /* 메모 추가하기 */
-.add-box, .icon, .bottom-content {
+.add-box, .icon, .bottom-content,
+.settings, .menu li {
   display: flex; 
   align-items: center;
   justify-content: space-between;
@@ -83,4 +84,50 @@ body {
 .bottom-content span {
   color: #6d6d6d;
   font-size: 14px;
+}
+
+.bottom-content .settings i {
+  color: #6d6d6d;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* 메뉴박스 */
+.settings {
+  position: relative;
+}
+
+.settings .menu {
+  position: absolute;
+  bottom: 0;
+  right: -5px;
+  padding: 5px 0;
+  background: #fff;
+  border-radius: 4px;
+  transform: scale(0);
+  transform-origin: bottom right;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+/* 메뉴창 애니메이션 */
+.settings:hover .menu {
+  transform: scale(1);
+}
+
+.settings .menu li {
+  height: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 0;
+  padding: 17px 15px;
+  justify-content: flex-start;
+}
+
+.menu li:hover {
+  background: #f5f5f5;
+}
+
+.menu li i {
+  padding-right: 8px;
 }
