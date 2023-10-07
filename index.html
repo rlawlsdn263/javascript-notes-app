@@ -2,12 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>JavaScript Memo Application</title>
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JavaScript Memo Application</title>
+    <!-- Iconscout Link For Icons -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
   </head>
   <body>
-    <div id="app"></div>
+    <div class="wrapper">
+      <li class="add-box">
+        <div class="icon">
+          <i class="uil uil-plus"></i>
+        </div>
+        <p>Add new note</p>
+      </li>
+      <li class="note">
+        <div class="details">
+          <p>This is a Title</p>
+          <span
+            >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga,
+            iusto eligendi totam voluptas officiis dicta aut molestias eveniet,
+            facere hic sunt temporibus quod! Recusandae, rem saepe. Nobis
+            placeat dicta quo?</span
+          >
+        </div>
+        <div class="bottom-content">
+          <span>April 3, 2022</span>
+          <div class="settings">
+            <i class="uil uil-ellipsis-h"></i>
+          </div>
+        </div>
+      </li>
+    </div>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
