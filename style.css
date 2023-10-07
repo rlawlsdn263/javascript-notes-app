@@ -6,3 +6,23 @@
   box-sizing: border-box;
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
+
+body {
+  background: #88ABFF;
+}
+
+/* 메모 전체 */
+.wrapper {
+  margin: 50px;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fill, 265px);
+}
+
+.wrapper li {
+  height: 250px;
+  list-style: none;
+  background: #fff;
+  border-radius: 5px;
+  padding: 15px 20px 20px 20px;
+}
