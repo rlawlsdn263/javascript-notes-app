@@ -20,6 +20,10 @@ const descTag = popupBox.querySelector('textarea'); //내용칸
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+// notes가 클릭이벤트 안에 있을 경우, 클릭마다 빈 배열로 초기화되는 문제가 발생한다.
+//이를 해결하고자 notes를 전역으로 변수를 만들었다.
+// 로컬스토리지에서 notes에 접근하고, notes가 없을 경우에는 빈 배열을 반환한다.
+const notes = JSON.parse(localStorage.getItem('notes') || "[]");
 
 addBtn.addEventListener('click', (e) => {
   // form 태그 새로고침 방지
@@ -42,14 +46,14 @@ addBtn.addEventListener('click', (e) => {
       date: `${month} ${day}, ${year}`
     }
 
-    // 로컬스토리지에 저장하기 위해 notes 배열을 생성함
-    const notes = [];
-
     //notes에 생성된 noteInfo 객체를 배열 안에 추가함
     notes.push(noteInfo);
 
     // 로컬스토리지에 notes 배열을 저장함
     // 로컬스토리지에 객체를 저장하기 위해서는 문자화를 해줘야함
     localStorage.setItem('notes', JSON.stringify(notes));
+    
+    // closeIcon에 클릭이벤트가 동작하게 함
+    closeIcon.click();
   }
 })
