@@ -42,6 +42,14 @@ addBtn.addEventListener('click', (e) => {
       date: `${month} ${day}, ${year}`
     }
 
-    console.log(noteInfo);
+    // 로컬스토리지에 저장하기 위해 notes 배열을 생성함
+    const notes = [];
+
+    //notes에 생성된 noteInfo 객체를 배열 안에 추가함
+    notes.push(noteInfo);
+
+    // 로컬스토리지에 notes 배열을 저장함
+    // 로컬스토리지에 객체를 저장하기 위해서는 문자화를 해줘야함
+    localStorage.setItem('notes', JSON.stringify(notes));
   }
 })
