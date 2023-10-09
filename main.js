@@ -55,5 +55,36 @@ addBtn.addEventListener('click', (e) => {
     
     // closeIcon에 클릭이벤트가 동작하게 함
     closeIcon.click();
+    // 노트 화면에 렌더링하기
+    showNotes();
   }
 })
+
+/* 로컬스토리지 렌더링에 담긴 데이터 불러오기 */
+
+function showNotes() {
+  // notes 배열에 담긴 noteInfo 데이터 접근하기
+  notes.forEach((note) => {
+    // 노트 컴포넌트 생성
+    let liTag = `
+      <li class="note">
+        <div class="details">
+          <p>${note.title}</p>
+          <span>${note.description}</span>
+          </div>
+          <div class="bottom-content">
+            <span>${note.date}</span>
+            <div class="settings">
+              <i class="uil uil-ellipsis-h"></i>
+              <ul class="menu">
+                <li><i class="uil uil-pen"></i>Edit</li>
+                <li><i class="uil uil-trash"></i>Delete</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+    `;
+    // 노트 컴포넌트 생성 - addBox의 뒤로 liTag를 추가하라
+    addBox.insertAdjacentHTML("afterend", liTag);
+  })
+}
