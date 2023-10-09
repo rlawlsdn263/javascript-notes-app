@@ -63,6 +63,9 @@ addBtn.addEventListener('click', (e) => {
 /* 로컬스토리지 렌더링에 담긴 데이터 불러오기 */
 
 function showNotes() {
+  // note가 추가되지 전에 기존의 note를 전부 제거
+  document.querySelectorAll('.note').forEach(note => note.remove());
+
   // notes 배열에 담긴 noteInfo 데이터 접근하기
   notes.forEach((note) => {
     // 노트 컴포넌트 생성
