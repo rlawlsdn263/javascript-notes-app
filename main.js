@@ -9,6 +9,10 @@ addBox.addEventListener('click', () => {
 })
 
 closeIcon.addEventListener('click', () => {
+  // input 초기화를 위한 코드
+  titleTag.value = "";
+  descTag.value = "";
+
   // 팝업창의 X버튼을 클릭하면 팝업 박스에 .show를 제거
   popupBox.classList.remove('show');
 })
