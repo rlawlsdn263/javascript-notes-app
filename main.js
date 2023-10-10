@@ -71,7 +71,7 @@ function showNotes() {
   document.querySelectorAll('.note').forEach(note => note.remove());
 
   // notes 배열에 담긴 noteInfo 데이터 접근하기
-  notes.forEach((note) => {
+  notes.forEach((note, index) => {
     // 노트 컴포넌트 생성
     let liTag = `
       <li class="note">
@@ -85,7 +85,7 @@ function showNotes() {
               <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
               <ul class="menu">
                 <li><i class="uil uil-pen"></i>Edit</li>
-                <li><i class="uil uil-trash"></i>Delete</li>
+                <li onclick="deleteNote(${index})"><i class="uil uil-trash"></i>Delete</li>
               </ul>
             </div>
           </div>
@@ -98,6 +98,7 @@ function showNotes() {
 
 showNotes()
 
+/* 메뉴창 보여주기 닫기 기능 */
 function showMenu(elem) { //this는 클릭된 <i> 요소 자체를 참조
   elem.parentElement.classList.add('show'); //클릭이 발생하면 <i>의 부모 태그에 show 클래스가 추가
 
@@ -108,3 +109,10 @@ function showMenu(elem) { //this는 클릭된 <i> 요소 자체를 참조
     }
   })
 }
+
+/* 메모 삭제 기능 */
+function deleteNote(noteId) {
+  notes.splice(noteId, 1); // notes 안에서 해당 인덱스의 노트 제거
+  localStorage.setItem('notes', JSON.stringify(notes)); // 로컬스토리지 재업데이트
+  showNotes(); //다시 showNotes를 실행하여 제거 후 화면 UI 업데이트
+} 
