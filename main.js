@@ -82,7 +82,7 @@ function showNotes() {
           <div class="bottom-content">
             <span>${note.date}</span>
             <div class="settings">
-              <i class="uil uil-ellipsis-h"></i>
+              <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
               <ul class="menu">
                 <li><i class="uil uil-pen"></i>Edit</li>
                 <li><i class="uil uil-trash"></i>Delete</li>
@@ -93,5 +93,18 @@ function showNotes() {
     `;
     // 노트 컴포넌트 생성 - addBox의 뒤로 liTag를 추가하라
     addBox.insertAdjacentHTML("afterend", liTag);
+  })
+}
+
+showNotes()
+
+function showMenu(elem) { //this는 클릭된 <i> 요소 자체를 참조
+  elem.parentElement.classList.add('show'); //클릭이 발생하면 <i>의 부모 태그에 show 클래스가 추가
+
+  document.addEventListener('click', e => { 
+    //클릭했을 때 클릭이벤트의 타켓의 태그명이 i가 아니거나, 현재 this가 가리키는 i가 아니라면 show를 제거
+    if(e.target.tagName != "I" || e.target != elem) {
+      elem.parentElement.classList.remove('show');
+    }
   })
 }
